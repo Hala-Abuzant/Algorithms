@@ -1,0 +1,26 @@
+function validParantheses(str){
+    var counterLeft = 0;
+    var counterRight = 0;
+    
+    for(var i=0; i<str.length; i++){
+        if(str[i] == '('){
+            counterLeft ++;
+        }
+        else if(str[i] == ')'){
+            counterRight ++;
+            if(counterRight > counterLeft){
+                return false;
+            }
+        }
+    }
+    
+    if(counterLeft == counterRight){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+var txt = "()))()";
+console.log(validParantheses(txt))
